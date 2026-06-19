@@ -1,0 +1,36 @@
+/* || FADE-IN */
+
+/* Visibility and fade animation utilities */
+.zero-vis {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeInOpacity 0.8s ease-in both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.none {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}

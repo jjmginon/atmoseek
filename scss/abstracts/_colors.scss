@@ -1,0 +1,47 @@
+/* || COLORS */
+
+/* Base palette */
+$color-white: #ffffff;
+$color-off-white: #f7f8fa;
+$color-gray-100: #eef0f4;
+$color-gray-200: #dde1e9;
+$color-gray-400: #9da5b4;
+$color-gray-600: #5c6478;
+$color-gray-900: #1a1d27;
+
+/* Text */
+$color-text-primary: $color-gray-900;
+$color-text-muted: $color-gray-400;
+$color-text-inverse: $color-white;
+
+/* Surfaces */
+$color-surface: $color-white;
+$color-surface-glass: rgba(255, 255, 255, 0.72);
+$color-border: $color-gray-200;
+$color-shadow: rgba(26, 29, 39, 0.08);
+$color-shadow-md: rgba(26, 29, 39, 0.14);
+
+/* Condition gradients (background stops) */
+$grad-sunny-from: #fdf6e3;
+$grad-sunny-to: #fce4a0;
+
+$grad-cloudy-from: #e8ecf4;
+$grad-cloudy-to: #c9d2e3;
+
+$grad-rain-from: #dde5f2;
+$grad-rain-to: #9fb5d4;
+
+$grad-snow-from: #eaf0fb;
+$grad-snow-to: #c8d9f0;
+
+$grad-fog-from: #e2e5ea;
+$grad-fog-to: #b5bbc6;
+
+$grad-night-from: #1e2235;
+$grad-night-to: #2e3554;
+
+$grad-thunder-from: #c9cfe0;
+$grad-thunder-to: #7a8299;
+
+/* Interactive */
+$color-focus-ring: #4a7cf7;

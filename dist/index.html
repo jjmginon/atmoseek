@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtmoSeek — Weather, Clarified</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.min.css">
+    <script src="js/config.js"></script>
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <main class="app fade-in">
+        <h1 class="sr-only">AtmoSeek Weather App</h1>
+
+        <header class="app__header">
+            <p class="app__wordmark">AtmoSeek</p>
+            <section id="searchBar" class="search" aria-label="Location search">
+                <form id="searchBar__form" class="search__form" role="search" autocomplete="off">
+                    <label for="search__input" class="sr-only">Enter a city, state, or country</label>
+                    <input id="search__input" class="search__input" type="text" autocomplete="off"
+                        placeholder="City, region, or zip code" role="combobox" aria-autocomplete="list"
+                        aria-expanded="false" aria-controls="search__suggestions" aria-activedescendant="">
+                    <button id="search__button" class="search__button button" type="submit" title="Search location"
+                        aria-label="Search for weather by city, region, or zip code">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <i class="fa-solid fa-rotate fa-spin none" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <ul id="search__suggestions" class="search__suggestions none" role="listbox"
+                    aria-label="Location suggestions"></ul>
+            </section>
+        </header>
+
+        <a href="#currentForecast" class="skip-link">Skip to current conditions</a>
+
+        <section id="currentForecast" class="current fade-in" role="region" aria-labelledby="current__location">
+            <i id="current__bg-icon" class="current__bg-icon" aria-hidden="true"></i>
+            <h2 id="current__location" class="current__location">—</h2>
+            <p id="current__condition-label" class="current__condition-label"></p>
+            <div id="current__conditions" class="current__conditions"></div>
+        </section>
+
+        <a href="#dailyForecast" class="skip-link">Skip to 7-day forecast</a>
+
+        <nav id="navButtons" class="controls fade-in" aria-label="App controls">
+            <button id="getLocation" class="button button--icon" title="Use my location"
+                aria-label="Get weather for your current location">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <i class="fa-solid fa-rotate fa-spin none" aria-hidden="true"></i>
+            </button>
+            <button id="home" class="button button--icon" title="Home location"
+                aria-label="Get weather for your saved home location">
+                <i class="fa-solid fa-house" aria-hidden="true"></i>
+                <i class="fa-solid fa-rotate fa-spin none" aria-hidden="true"></i>
+            </button>
+            <button id="saveLocation" class="button button--icon" title="Save as home"
+                aria-label="Save current location as home">
+                <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i>
+                <i class="fa-solid fa-rotate fa-spin none" aria-hidden="true"></i>
+            </button>
+            <button id="unit" class="button button--icon" title="Toggle °C / °F"
+                aria-label="Toggle between Celsius and Fahrenheit">
+                <i class="fa-solid fa-temperature-half" aria-hidden="true"></i>
+                <i class="fa-solid fa-rotate fa-spin none" aria-hidden="true"></i>
+            </button>
+            <button id="refresh" class="button button--icon" title="Refresh"
+                aria-label="Refresh current weather conditions">
+                <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                <i class="fa-solid fa-rotate fa-spin none" aria-hidden="true"></i>
+            </button>
+        </nav>
+
+        <hr class="divider fade-in">
+
+        <section id="dailyForecast" class="forecast fade-in" role="region" aria-labelledby="forecast__title">
+            <h2 id="forecast__title" class="forecast__title sr-only">7-Day Forecast</h2>
+            <div id="forecast__track" class="forecast__track"></div>
+        </section>
+
+        <p id="confirmation" class="sr-only" aria-live="assertive" aria-atomic="true"></p>
+    </main>
+</body>
+
+</html>

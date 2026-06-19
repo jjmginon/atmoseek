@@ -1,0 +1,66 @@
+/* || APP SHELL */
+/* Main container, header, wordmark, divider */
+
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.app {
+  width: 100%;
+  max-width: 680px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-surface-glass;
+  border: 1px solid $color-border;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px $color-shadow;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+
+  @include mq(480px) {
+    border-radius: 20px;
+  }
+
+  @include mq(768px) {
+    border-radius: 24px;
+  }
+
+  // Header row: wordmark + search
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.625rem;
+    padding: 1rem 1rem 0;
+
+    @include mq(480px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.5rem 1.75rem 0;
+    }
+  }
+
+  // Brand wordmark
+  &__wordmark {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: $color-text-primary;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    @include mq(768px) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.divider {
+  width: calc(100% - 2.5rem);
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid $color-border;
+}

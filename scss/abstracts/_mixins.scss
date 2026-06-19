@@ -1,0 +1,41 @@
+/* || MIXINS */
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* min-width breakpoints */
+@mixin mq($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+/* min-height breakpoints */
+@mixin mq-h($size) {
+  @media only screen and (min-height: $size) {
+    @content;
+  }
+}
+
+/* max-width + min-height (tablet portrait / iPad Pro) */
+@mixin mq-max-w-min-h($max-w, $min-h) {
+  @media only screen and (max-width: $max-w) and (min-height: $min-h) {
+    @content;
+  }
+}
+
+/* Reduced motion */
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

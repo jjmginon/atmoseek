@@ -1,0 +1,125 @@
+/* || BACKGROUNDS */
+/* Condition-based atmospheric gradient themes */
+/* Applied to <html> element via JS */
+
+@use "../abstracts/colors" as *;
+
+.theme-sunny {
+  background: linear-gradient(160deg, $grad-sunny-from 0%, $grad-sunny-to 100%);
+}
+
+.theme-cloudy {
+  background: linear-gradient(
+    160deg,
+    $grad-cloudy-from 0%,
+    $grad-cloudy-to 100%
+  );
+}
+
+.theme-rain {
+  background: linear-gradient(160deg, $grad-rain-from 0%, $grad-rain-to 100%);
+}
+
+.theme-snow {
+  background: linear-gradient(160deg, $grad-snow-from 0%, $grad-snow-to 100%);
+}
+
+.theme-fog {
+  background: linear-gradient(160deg, $grad-fog-from 0%, $grad-fog-to 100%);
+}
+
+.theme-night {
+  background: linear-gradient(160deg, $grad-night-from 0%, $grad-night-to 100%);
+
+  // Night mode: invert text on body/app for dark bg
+  .app {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .app__wordmark,
+  .current__location,
+  .current__conditions .temp,
+  .current__conditions .desc,
+  .forecast__day-high {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .current__conditions .icon i,
+  .current__conditions .high-low,
+  .current__conditions .meta {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .current__conditions .high-low__high {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .current__bg-icon {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .current__condition-label {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .search__form {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .search__input {
+    color: rgba(255, 255, 255, 0.9);
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+  }
+
+  .search__button,
+  .controls .button--icon {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .search__suggestions {
+    background-color: $color-gray-900;
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .search__suggestion {
+    color: rgba(255, 255, 255, 0.9);
+
+    &:hover,
+    &--active {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .search__suggestion-meta {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .divider {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .forecast__day {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .forecast__day-label,
+  .forecast__day-low {
+    color: rgba(255, 255, 255, 0.45);
+  }
+}
+
+.theme-thunder {
+  background: linear-gradient(
+    160deg,
+    $grad-thunder-from 0%,
+    $grad-thunder-to 100%
+  );
+}

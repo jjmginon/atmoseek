@@ -1,0 +1,102 @@
+/* || FORECAST */
+/* 7-day horizontal scroll forecast strip */
+
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.forecast {
+  padding: 1rem 1.25rem 1.25rem;
+
+  @include mq(480px) {
+    padding: 1rem 1.75rem 1.25rem;
+  }
+
+  &__track {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.25rem 0 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+
+    &::-webkit-scrollbar {
+      display: none; // Chrome / Safari
+    }
+
+    @include mq(480px) {
+      gap: 0.625rem;
+    }
+
+    @include mq(640px) {
+      justify-content: space-between;
+      overflow-x: visible;
+    }
+  }
+
+  /* Individual day card */
+  &__day {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: $color-gray-100;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+    padding: 0.75rem 0.875rem;
+    min-width: 72px;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    @include mq(480px) {
+      min-width: 80px;
+      padding: 0.875rem 1rem;
+    }
+
+    &:hover {
+      background-color: $color-surface;
+      box-shadow: 0 2px 8px $color-shadow;
+    }
+  }
+
+  /* Day label (MON, TUE…) */
+  &__day-label {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    margin: 0;
+  }
+
+  /* Condition icon */
+  &__day-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+
+    @include mq(480px) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  /* High temp */
+  &__day-high {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  /* Low temp */
+  &__day-low {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: $color-text-muted;
+    margin: 0;
+  }
+}
