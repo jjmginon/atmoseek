@@ -1,1 +1,5 @@
 dist/js/config.js
+
+# Local Netlify folder
+.netlify
+.env
