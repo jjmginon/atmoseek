@@ -84,8 +84,11 @@ const renderSuggestions = (results) => {
 
 const buildSuggestionItem = (result, index) => {
     const itemEl = document.createElement("li");
-    const labelText = result.region && result.region !== result.name
-        ? `${result.region}, ${result.country}`
+
+    // Build the secondary line: show region + country if region exists
+    // and isn't the same as the city name, otherwise just country
+    const metaText = result.admin1 && result.admin1 !== result.name
+        ? `${result.admin1}, ${result.country}`
         : result.country;
 
     itemEl.id = `search__suggestion-${index}`;
@@ -96,7 +99,7 @@ const buildSuggestionItem = (result, index) => {
 
     itemEl.innerHTML = `
         <span class="search__suggestion-name">${result.name}</span>
-        <span class="search__suggestion-meta">${labelText}</span>
+        <span class="search__suggestion-meta">${metaText}</span>
     `;
 
     return itemEl;

@@ -112,7 +112,15 @@
 
   .forecast__day-label,
   .forecast__day-low {
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .forecast__day-high {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .forecast__day-icon {
+    color: rgba(255, 255, 255, 0.7);
   }
 }
 

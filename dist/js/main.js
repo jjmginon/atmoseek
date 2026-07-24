@@ -169,12 +169,22 @@ const handleSuggestionSelect = (result) => {
 // Shared: WeatherAPI result -> location -> fetch
 
 const selectSearchResult = (result) => {
+    // Build display name: "City, Region, Country" when region exists
+    // and differs from city name, otherwise "City, Country"
+    const nameParts = [result.name];
+
+    if (result.admin1 && result.admin1 !== result.name) {
+        nameParts.push(result.admin1);
+    }
+
+    if (result.country) {
+        nameParts.push(result.country);
+    }
+
     const coordsObj = {
-        lat: result.lat,
-        lon: result.lon,
-        name: result.name && result.country
-            ? `${result.name}, ${result.country}`
-            : result.name,
+        lat: result.latitude,
+        lon: result.longitude,
+        name: nameParts.join(", "),
     };
 
     setLocationObject(currentLoc, coordsObj);

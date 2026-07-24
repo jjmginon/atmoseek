@@ -1,4 +1,4 @@
-// --- DATA FUNCTIONS --- //
+// === DATA FUNCTIONS === //
 // API calls and location state helpers
 
 const WEATHER_FUNCTION_URL = "/.netlify/functions/weather";
@@ -18,7 +18,7 @@ export const getHomeLocation = () => {
 };
 
 // API: Fetch weather by coordinates
-// Returns full forecast JSON from WeatherAPI
+// Returns Open-Meteo forecast JSON
 
 export const getWeatherFromCoords = async (locationObj) => {
     const lat = locationObj.getLat();
@@ -36,17 +36,20 @@ export const getWeatherFromCoords = async (locationObj) => {
 };
 
 // API: Search for a location by text query
-// Handles city names, regions, and zip codes
+// Returns Open-Meteo geocoding results array
 
 export const searchLocation = async (queryText) => {
     const url = `${WEATHER_FUNCTION_URL}?endpoint=search&q=${encodeURIComponent(queryText)}`;
 
     try {
         const response = await fetch(url);
-        const locationData = await response.json();
-        return locationData;
+        const data = await response.json();
+        // Open-Meteo wraps results in a "results" key
+        // return empty array if no matches found
+        return data.results ?? [];
     } catch (err) {
         console.error("searchLocation error:", err);
+        return [];
     }
 };
 
