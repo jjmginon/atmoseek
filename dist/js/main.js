@@ -16,6 +16,7 @@ import {
     displayApiError,
     updateScreenReaderConfirmation,
     updateDisplay,
+    showToast,
 } from "./domFunctions.js";
 
 import CurrentLocation from "./CurrentLocation.js";
@@ -118,7 +119,7 @@ const handleSaveLocation = () => {
     };
 
     localStorage.setItem("atmoSeekHomeLocation", JSON.stringify(locationData));
-    updateScreenReaderConfirmation(`Saved ${currentLoc.getName()} as home location.`);
+    showToast(`${currentLoc.getName()} saved as home`);
 };
 
 // Unit toggle

@@ -13,6 +13,29 @@ const toggleSpinner = (iconElement) => {
     iconElement.nextElementSibling.classList.toggle("none");
 };
 
+// Toast
+
+let toastTimerId = null;
+
+export const showToast = (message) => {
+    const toastEl = document.getElementById("toast");
+
+    // Set message
+    toastEl.textContent = message;
+
+    // Clear the existing dismiss timer so the toast resets instead of overlapping
+    if (toastTimerId) clearTimeout(toastTimerId);
+
+    // Show
+    toastEl.classList.add("toast--visible");
+
+    // Auto-dismiss after 3 seconds
+    toastTimerId = setTimeout(() => {
+        toastEl.classList.remove("toast--visible");
+        toastTimerId = null;
+    }, 3000);
+};
+
 // Placeholder text
 export const setPlaceholderText = () => {
     const input = document.getElementById("search__input");
